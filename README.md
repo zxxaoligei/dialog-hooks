@@ -1,11 +1,17 @@
 # dialog-hooks
-
+### 
 #### 介绍
+
+### 
 dialog弹窗组件的解决方案
+
 ![输入图片说明](noPrintSmall.gif)
 
 
-1.  全局挂载弹窗组件后,调用对应的hooks 传入基础配置
+### 1.  全局挂载弹窗组件后,调用对应的hooks 传入基础配置
+
+```
+
 import useDialogHooks from '@/hooks/dialog'
 
 const { initDialog } = useDialogHooks()
@@ -33,7 +39,11 @@ const openDialog = () => {
         }],
     })
 }
-2.  在原有的弹窗新增一个弹窗
+```
+
+### 2.  在原有的弹窗新增一个弹窗
+
+```
 import useDialogHooks from '@/hooks/dialog'
 const { addDialog } = useDialogHooks()
 
@@ -50,8 +60,21 @@ const openDialog = () => {
     })
 }
 
-3.关闭当前弹窗
+```
+
+
+### 3.关闭当前弹窗
+
+
+```
 const props = defineProps(['conf', 'id'])
 const emit = defineEmits(['removePage'])
 
 emit('removePage', props.id, true)    //关闭
+```
+
+
+### 4. 最后： 根据 component 属性传入异步组件，将弹窗页面 视为一个.vue文件 就已将dailog 的逻辑与当前页面相隔离
+
+
+
